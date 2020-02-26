@@ -1,0 +1,50 @@
+# ---------------------
+# General configuration
+# ---------------------
+
+# Título da página
+title:          Programação Avançada
+
+# Notas sobre o autor
+author:
+    name:       Chauã Queirolo
+    website:    http://github.com/chaua/programacao-avancada
+
+# Base da URL - usado para o github
+#baseurl:        "https://chaua.github.io/programacao-avancada"
+
+# Esquema de cores 
+color_class:        "indigo darken-4"
+color_primary:      "#1a237e"
+color_secondary:    "#3f51b5"
+color_accent:       "#FF6F00"
+
+# ---------------------
+# Build settings
+# ---------------------
+
+markdown: kramdown
+
+plugins:
+    - jekyll-feed
+#    - jekyll-seo-tag
+#    - jekyll-scholar
+#    - jekyll-youtube
+    - jemoji
+    - premonition
+
+exclude:
+    - README.md
+    - node_modules
+    - package.json
+    - package-lock.json
+    - Gemfile
+    - Gemfile.lock
+
+sass:
+    style:          compressed
+
+#scholar:
+#    bibliography:   referencias.bib
+#    style:          ieee-with-url  
+

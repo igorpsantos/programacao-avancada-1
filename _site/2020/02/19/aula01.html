@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Programação Avançada | Aula 01</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/assets/css/materialize.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/page.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+
+    <!-- TODO
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://shawnteoh.github.io/matjek/feed.xml">
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="https://shawnteoh.github.io/matjek/sitemap.xml">
+    -->
+
+</head>
+
+    <body>
+        <!-- .............................................................. -->
+<!-- HEADER ....................................................... -->
+<!-- .............................................................. -->
+<header>
+
+    <!-- Barra superior -->
+    <nav class="top-nav indigo darken-4">
+        <div class="nav-wrapper">
+            <div class="container">    
+                <a class="page-title" href="#">Programação Avançada</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Botão de menu -->
+    <div class="container">
+        <a href="#" data-activates="slide-out" class="button-collapse top-nav full hide-on-large-only">
+            <i class="material-icons">menu</i>
+        </a>
+    </div>
+
+    <!-- Menu lateral -->
+    <ul id="slide-out" class="side-nav fixed" style="transform: translateX(0px);">
+        <li>
+            <div class="userView">
+                <div class="background"></div>
+                <img class="circle z-depth-2" src="/assets/img/logo.png">
+            <span class="white-text name">Programação Avançada</span>
+            <span class="white-text email"></span>
+            </div>
+        </li>
+
+        <li>
+            <a class="waves-effect" href="/">
+                <i class="material-icons">home</i>Home
+            </a>
+        </li>
+        <li>
+            <a class="waves-effect" href="/aulas">
+                <i class="material-icons">description</i>Aulas
+            </a>
+        </li>
+        <!--
+            <li>
+            <a class="waves-effect" href="/projetos">
+            <i class="material-icons">laptop_mac</i>Projetos
+            </a>
+            </li>
+        -->
+            <li>
+            <a class="waves-effect" href="/trabalhos">
+            <i class="material-icons">assignment</i>Trabalhos
+            </a>
+            </li>
+        <li>
+            <a class="waves-effect" href="/referencias">
+                <i class="material-icons">book</i>Referências bibliográficas
+            </a>
+        </li>
+
+        <li><div class="divider"></div></li>
+        <li>
+            <a class="waves-effect" href="http://github.com/chaua/programacao-avancada">
+                <i class="material-icons">person</i>Sobre
+            </a>
+        </li>
+        <!--
+            <li>
+            <a class="waves-effect" href="/contato">
+            <i class="material-icons">email</i>Contato
+            </a>
+            </li>
+        -->
+    </ul>
+</header>
+
+        <main>
+        <div class="content container">
+            <br>
+<div class="card">
+    <div class="card-image">
+        
+        <img style="filter: brightness(90%);object-fit: cover;" height="150px" src="/assets/img/header.png">
+        
+        <span class="card-title">Aula 01</span>
+    </div>    
+    <div class="card-content">
+        <h1 id="revisão-conceitos-básicos-de-c">Revisão conceitos básicos de C++</h1>
+
+<h2 id="processo-de-compilação">Processo de compilação</h2>
+
+<p>Os elementos envolvidos no processo de compilação são<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>:</p>
+
+<ul>
+  <li>Compilador</li>
+  <li>Link-editor</li>
+</ul>
+
+<figure style="text-align: center"> 
+    <img src="//assets/aulas/processo-compilacao.png" alt="Processo de compilação de um programa C++." align="middle">
+  <figcaption><b>Figura:</b> Processo de compilação de um programa C++.</figcaption>
+</figure>
+
+<h2 id="diretivas-de-pré-compilação">Diretivas de pré-compilação</h2>
+
+<p>As diretivas de pré-compilação são executadas antes do processo de compilação. Por esse motivo, erros de sintaxe só serão validados posteriormente.</p>
+
+<h3 id="include"><code class="highlighter-rouge">#include</code></h3>
+
+<p>Esta diretiva é usada para incluir cabeçalhos. Ela informa ao pré-processador para incluir o conteúdo dos arquivos no ponto do texto onde se encontra no arquivo fonte.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Inclui um arquivo que está nos diretórios padrão</span>
+<span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="c1">// Inclui um arquivo que está nos diretórios locais</span>
+<span class="cp">#include "arquivo.h"
+</span></code></pre></div></div>
+
+<h3 id="define"><code class="highlighter-rouge">#define</code></h3>
+
+<p>Esta diretiva é utilizada para substituir valores no arquivo fonte.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define PI 3.14
+#define REAL double
+</span>
+<span class="n">REAL</span> <span class="n">x</span> <span class="o">=</span> <span class="n">PI</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Também é possível definir macros que recebem parâmetros. A convenção para nomes de macros é utilizar todas letras maiúsculas separadas por underscore. Por exemplo:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define MAX(x, y) (((x) &gt; (y)) ? (x) : (y))
+</span>
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">MAX</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Na definição das macros é importante envolver os valores entre parênteses para evitar problemas na ordem de precedência dos operadores. Por exemplo:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define MULT_OK(x, y) x * y
+</span>
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">MULT</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="c1">// 30</span>
+<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">MULT</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="c1">// 21!</span>
+<span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="n">MULT</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// 20!</span>
+</code></pre></div></div>
+
+<h3 id="outras-diretivas">Outras diretivas</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">#undef</code></li>
+  <li>
+<code class="highlighter-rouge">#ifdef</code> e <code class="highlighter-rouge">#ifndef</code>
+</li>
+  <li><code class="highlighter-rouge">#if</code></li>
+  <li><code class="highlighter-rouge">#else</code></li>
+  <li><code class="highlighter-rouge">#elif</code></li>
+</ul>
+
+<h2 id="apelidos">Apelidos</h2>
+
+<p>Em C++ é possível criar um apelido para um nome. Os apelidos são usados durante o período de compilação para se referir a nomes. Este mecanismo não cria um novo tipo, apenas um nome novo para um tipo.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="kt">int</span> <span class="n">Inteiro</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">char</span><span class="o">*</span> <span class="n">Pchar</span><span class="p">;</span>
+
+<span class="n">Inteiro</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">Pchar</span> <span class="n">y</span> <span class="o">=</span> <span class="s">"y é um char*"</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<h2 id="tipos-de-dados">Tipos de dados</h2>
+
+<ul>
+  <li>Tipos primitivos
+    <ul>
+      <li><code class="highlighter-rouge">char</code></li>
+      <li><code class="highlighter-rouge">int</code></li>
+      <li><code class="highlighter-rouge">float</code></li>
+      <li><code class="highlighter-rouge">double</code></li>
+    </ul>
+  </li>
+  <li>Modificadores de tipo: sinal
+    <ul>
+      <li><code class="highlighter-rouge">signed</code></li>
+      <li><code class="highlighter-rouge">unsigned</code></li>
+    </ul>
+  </li>
+  <li>Modificadores de tipo: tamanho
+    <ul>
+      <li><code class="highlighter-rouge">short</code></li>
+      <li><code class="highlighter-rouge">long</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="comandos">Comandos</h2>
+
+<ul>
+  <li>Comandos de decisão
+    <ul>
+      <li><code class="highlighter-rouge">if</code></li>
+      <li><code class="highlighter-rouge">if / else</code></li>
+      <li><code class="highlighter-rouge">if / else if</code></li>
+      <li><code class="highlighter-rouge">switch / case</code></li>
+    </ul>
+  </li>
+  <li>Comandos de repetição
+    <ul>
+      <li><code class="highlighter-rouge">while</code></li>
+      <li><code class="highlighter-rouge">do / while</code></li>
+      <li><code class="highlighter-rouge">for</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="operadores">Operadores</h2>
+
+<h3 id="operadores-aritméticos">Operadores aritméticos</h3>
+
+<ul>
+  <li>
+<code class="highlighter-rouge">&lt;Número&gt; &lt;operador&gt; &lt;Número&gt; = &lt;Número&gt;</code>
+    <ul>
+      <li><code class="highlighter-rouge">+</code></li>
+      <li><code class="highlighter-rouge">-</code></li>
+      <li><code class="highlighter-rouge">*</code></li>
+      <li><code class="highlighter-rouge">/</code></li>
+      <li><code class="highlighter-rouge">%</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="operadores-relacionais">Operadores relacionais</h3>
+
+<ul>
+  <li>
+<code class="highlighter-rouge">&lt;Número&gt; &lt;operador&gt; &lt;Número&gt; = &lt;Booleano&gt;</code>
+    <ul>
+      <li><code class="highlighter-rouge">==</code></li>
+      <li><code class="highlighter-rouge">!=</code></li>
+      <li><code class="highlighter-rouge">&gt;</code></li>
+      <li><code class="highlighter-rouge">&gt;=</code></li>
+      <li><code class="highlighter-rouge">&lt;</code></li>
+      <li><code class="highlighter-rouge">&lt;=</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="operadores-lógicos">Operadores lógicos</h3>
+
+<ul>
+  <li>
+<code class="highlighter-rouge">&lt;Booleano&gt; &lt;operador&gt; &lt;Booleano&gt; = &lt;Booleano&gt;</code>
+    <ul>
+      <li>
+<code class="highlighter-rouge">||</code> ou <code class="highlighter-rouge">or</code>
+</li>
+      <li>
+<code class="highlighter-rouge">&amp;&amp;</code> ou <code class="highlighter-rouge">and</code>
+</li>
+      <li>
+<code class="highlighter-rouge">!</code> ou <code class="highlighter-rouge">not</code>
+</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="pencil-atividades">
+<img class="emoji" title=":pencil:" alt=":pencil:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dd.png" height="20" width="20"> Atividades</h2>
+
+<ol>
+  <li>
+    <p>Escreva um programa que leia três números $a$, $b$ e $c$, e encontre as raízes $x_1$ e $x_2$ de uma equação do segundo grau no formato $ax^2 + bx + c = 0$. Para encontrar as raízes da equação utilize a fórmula de Bháskara.</p>
+
+    <ol>
+      <li>Crie uma macro <code class="highlighter-rouge">DELTA(a, b, c)</code> para calcular o valor do delta da equação.</li>
+      <li>Crie o apelido <code class="highlighter-rouge">Real</code> para o tipo <code class="highlighter-rouge">double</code>.</li>
+    </ol>
+  </li>
+  <li>
+    <p>Escreva um programa que leia um número $x$ e imprima o fatorial de todos os números no intervalo de 1 até $x$.</p>
+  </li>
+</ol>
+
+<h2 id="books-referências-bibliográficas">
+<img class="emoji" title=":books:" alt=":books:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png" height="20" width="20"> Referências bibliográficas</h2>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>STROUSTRUP, Bjarne; LISBÔA, Maria Lúcia Blanck; LISBÔA, Carlos Arthur Lang (Trad.). <strong>A linguagem de programação C++</strong>. 3 ed. Porto Alegre, RS: Bookman, 2000. <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+        <div class="card-action">
+            
+            <a href="/2020/02/17/aula00.html"><i style="vertical-align:middle;margin-bottom:3px;" class="material-icons">chevron_left</i>Aula 00</a>
+            
+
+            
+        </div>
+
+</div>
+
+
+        </div>
+        </main>
+        <!-- .............................................................. -->
+<!-- FOOTER ....................................................... -->
+<!-- .............................................................. -->
+<footer class="page-footer indigo darken-4">
+    <!-- Copyright -->
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="col s6 push-s6">Copyright © 2020 <!--Chauã Queirolo-->
+</div>
+        </div>
+    </div>
+</footer>
+
+        <!-- .............................................................. -->
+<!-- SCRIPTS ...................................................... -->
+<!-- .............................................................. -->
+
+<script src="/assets/js/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="/assets/js/materialize.min.js"></script>
+<script src="/assets/js/main.js"></script>
+
+<div class="hiddendiv common"></div>
+<div class="drag-target" data-sidenav="slide-out" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
+<!--div id="sidenav-overlay" style="opacity: 1;" class=""></div-->
+
+    </body>
+</html>
